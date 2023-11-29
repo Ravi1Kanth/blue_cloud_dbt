@@ -1,0 +1,22 @@
+verion: 2
+
+models:
+  - name: customers
+    columns: 
+      - name: cust_id
+        test: 
+          - unique
+          - not_null
+
+
+
+  - name: stg_orders
+    columns: 
+      - name: user_id
+        test: 
+          - unique
+          - not_null
+          - relationship:
+            to: ref('stg_customers')
+            field: cust_id
+
